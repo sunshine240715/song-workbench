@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>每日计划工作台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="song-dashboard.html" class="float-btn" title="宋宋的工作台">🎯 宋宋工作台</a>
+    <div class="app">
+        <!-- 左侧导航栏 -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>📚 学习工作台</h1>
+                <p class="date" id="currentDate"></p>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active" data-section="daily">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">每日计划</span>
+                </div>
+                <div class="nav-item" data-section="gongji">
+                    <span class="nav-icon">📖</span>
+                    <span class="nav-text">公基</span>
+                </div>
+                <div class="nav-item" data-section="zhice">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">职测</span>
+                </div>
+                <div class="nav-item" data-section="shenlun">
+                    <span class="nav-icon">✍️</span>
+                    <span class="nav-text">申论</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- 右侧主内容区 -->
+        <main class="main-content">
+            <!-- 每日计划 -->
+            <section class="content-section active" id="daily">
+                <div class="section-header">
+                    <h2>📋 每日计划</h2>
+                    <div class="progress">
+                        <span id="dailyProgress">0/0</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="dailyProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-input-area">
+                    <input type="text" class="task-input" id="dailyInput" placeholder="添加新任务..." maxlength="100">
+                    <button class="btn-add" id="dailyAddBtn">+ 添加</button>
+                </div>
+                <ul class="task-list" id="dailyTaskList"></ul>
+            </section>
+
+            <!-- 公基 - 答题练习 -->
+            <section class="content-section" id="gongji">
+                <div class="section-header">
+                    <h2>📖 公基练习</h2>
+                    <div class="progress">
+                        <span id="gongjiProgress">0/0</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="gongjiProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-stats" id="gongjiStats">
+                    <span class="stat-item">总题数：<b id="gongjiTotal">0</b></span>
+                    <span class="stat-item">已答：<b id="gongjiAnswered">0</b></span>
+                    <span class="stat-item">正确：<b id="gongjiCorrect">0</b></span>
+                    <span class="stat-item">正确率：<b id="gongjiRate">0%</b></span>
+                    <button class="btn-reset" onclick="resetQuiz('gongji')">重置进度</button>
+                    <button class="btn-add-q" onclick="openAddModal('gongji')">+ 录入题目</button>
+                </div>
+                <ul class="task-list quiz-list" id="gongjiTaskList"></ul>
+            </section>
+
+            <!-- 职测 - 答题练习 -->
+            <section class="content-section" id="zhice">
+                <div class="section-header">
+                    <h2>📝 职测练习</h2>
+                    <div class="progress">
+                        <span id="zhiceProgress">0/0</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="zhiceProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-stats" id="zhiceStats">
+                    <span class="stat-item">总题数：<b id="zhiceTotal">0</b></span>
+                    <span class="stat-item">已答：<b id="zhiceAnswered">0</b></span>
+                    <span class="stat-item">正确：<b id="zhiceCorrect">0</b></span>
+                    <span class="stat-item">正确率：<b id="zhiceRate">0%</b></span>
+                    <button class="btn-reset" onclick="resetQuiz('zhice')">重置进度</button>
+                    <button class="btn-add-q" onclick="openAddModal('zhice')">+ 录入题目</button>
+                </div>
+                <ul class="task-list quiz-list" id="zhiceTaskList"></ul>
+            </section>
+
+            <!-- 申论 - 视频博主学习 -->
+            <section class="content-section" id="shenlun">
+                <div class="section-header">
+                    <h2>✍️ 申论学习</h2>
+                    <div class="progress">
+                        <span id="shenlunProgress">0/0</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="shenlunProgressBar"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-intro">
+                    <p>📚 精选 B 站申论学习博主，点击卡片跳转主页，点击"申论视频"按钮搜索该博主的申论相关视频。</p>
+                </div>
+                <div class="hot-topics-block">
+                    <h3 class="block-title">🔥 2025申论最新热点</h3>
+                    <p class="block-update">更新时间：2026年7月27日 · 来源：政府工作报告、新华社、半月谈等公开资料</p>
+                    <div class="hot-topics-list" id="hotTopicsList"></div>
+                </div>
+                <div class="video-grid" id="shenlunVideoGrid"></div>
+                <div class="task-input-area" style="margin-top:24px;">
+                    <input type="text" class="task-input" id="shenlunInput" placeholder="添加申论学习任务..." maxlength="100">
+                    <button class="btn-add" id="shenlunAddBtn">+ 添加</button>
+                </div>
+                <ul class="task-list" id="shenlunTaskList"></ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- 公基录入题目弹窗 -->
+    <div class="modal" id="gongjiAddModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>录入公基题目</h3>
+                <button class="modal-close" onclick="closeAddModal('gongji')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row"><label>题干</label><textarea id="gongjiNewQ" rows="3" placeholder="输入题目..."></textarea></div>
+                <div class="form-row form-row-2"><label>A<input type="text" id="gongjiNewA" placeholder="选项A"></label><label>B<input type="text" id="gongjiNewB" placeholder="选项B"></label></div>
+                <div class="form-row form-row-2"><label>C<input type="text" id="gongjiNewC" placeholder="选项C"></label><label>D<input type="text" id="gongjiNewD" placeholder="选项D"></label></div>
+                <div class="form-row"><label>正确答案<select id="gongjiNewAns"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label></div>
+                <div class="form-row"><label>解析（选填）</label><textarea id="gongjiNewExp" rows="2" placeholder="输入解析..."></textarea></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAddModal('gongji')">取消</button>
+                <button class="btn-save" onclick="addCustomQuestion('gongji')">保存题目</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 职测录入题目弹窗 -->
+    <div class="modal" id="zhiceAddModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>录入职测题目</h3>
+                <button class="modal-close" onclick="closeAddModal('zhice')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row"><label>题干</label><textarea id="zhiceNewQ" rows="3" placeholder="输入题目..."></textarea></div>
+                <div class="form-row form-row-2"><label>A<input type="text" id="zhiceNewA" placeholder="选项A"></label><label>B<input type="text" id="zhiceNewB" placeholder="选项B"></label></div>
+                <div class="form-row form-row-2"><label>C<input type="text" id="zhiceNewC" placeholder="选项C"></label><label>D<input type="text" id="zhiceNewD" placeholder="选项D"></label></div>
+                <div class="form-row"><label>正确答案<select id="zhiceNewAns"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></label></div>
+                <div class="form-row"><label>解析（选填）</label><textarea id="zhiceNewExp" rows="2" placeholder="输入解析..."></textarea></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" onclick="closeAddModal('zhice')">取消</button>
+                <button class="btn-save" onclick="addCustomQuestion('zhice')">保存题目</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋宋的工作台 · 2027广东省考冲刺</title>
+    <link rel="stylesheet" href="song-xhs.css">
+</head>
+<body>
+    <div class="app">
+        <!-- 顶部 -->
+        <header class="header">
+            <div class="header-left">
+                <h1>🎯 宋宋的工作台</h1>
+                <span class="header-sub">冲刺2027广东省公务员考试</span>
+            </div>
+            <div class="header-right">
+                <div class="countdown-box">
+                    <span>距2027省考约</span>
+                    <b id="countdown">--</b>
+                    <span>天</span>
+                </div>
+                <span class="date-text" id="todayDate"></span>
+            </div>
+        </header>
+
+        <!-- Tab 切换 -->
+        <nav class="tabs">
+            <div class="tab active" data-tab="tasks">📋 今日任务</div>
+            <div class="tab" data-tab="hot">🔥 小红书热点</div>
+            <div class="tab" data-tab="review">🔍 做题复盘</div>
+            <div class="tab" data-tab="summary">📝 学习总结</div>
+        </nav>
+
+        <!-- 今日任务 -->
+        <section class="tab-content active" id="tab-tasks">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>今日学习任务</h2>
+                    <span class="progress-tag" id="taskProgress">0/0</span>
+                </div>
+                <div class="task-add">
+                    <input type="text" id="taskInput" placeholder="添加学习任务，回车确认...">
+                    <button onclick="addTask()">添加</button>
+                </div>
+                <ul class="task-list" id="taskList"></ul>
+            </div>
+        </section>
+
+        <!-- 小红书热点 -->
+        <section class="tab-content" id="tab-hot">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>🔥 公考热点知识与技巧</h2>
+                    <span class="update-tag">整理自小红书/知乎/头条 · 2026-07-28更新</span>
+                </div>
+                <div class="xhs-grid" id="xhsGrid"></div>
+            </div>
+        </section>
+
+        <!-- 做题复盘 -->
+        <section class="tab-content" id="tab-review">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>🔍 每日做题复盘</h2>
+                    <button class="btn-primary" onclick="generateReview()">生成复盘分析</button>
+                </div>
+
+                <!-- 模块正确率录入 -->
+                <div class="module-inputs">
+                    <h3>各模块做题情况</h3>
+                    <p class="hint">录入今天各模块做题数和正确数，系统自动计算正确率并分析薄弱环节</p>
+                    <table class="module-table">
+                        <thead>
+                            <tr><th>模块</th><th>做题数</th><th>正确数</th><th>正确率</th></tr>
+                        </thead>
+                        <tbody id="moduleTableBody"></tbody>
+                    </table>
+                </div>
+
+                <!-- 复盘输入 -->
+                <div class="review-inputs">
+                    <div class="review-field">
+                        <label>今日学习时长</label>
+                        <input type="text" id="reviewHours" placeholder="如：4小时">
+                    </div>
+                    <div class="review-field">
+                        <label>错误原因总结</label>
+                        <textarea id="reviewErrors" rows="3" placeholder="今天做错的主要原因是什么？如审题失误、知识盲区、计算错误..."></textarea>
+                    </div>
+                    <div class="review-field">
+                        <label>明日改进计划</label>
+                        <textarea id="reviewPlan" rows="3" placeholder="明天重点改进什么..."></textarea>
+                    </div>
+                </div>
+
+                <!-- 复盘输出 -->
+                <div class="review-output" id="reviewOutput"></div>
+            </div>
+        </section>
+
+        <!-- 学习总结 -->
+        <section class="tab-content" id="tab-summary">
+            <div class="panel">
+                <div class="panel-header">
+                    <h2>📝 每日学习总结</h2>
+                    <button class="btn-primary" onclick="saveSummary()">保存总结</button>
+                </div>
+                <textarea id="summaryText" placeholder="今天学到了什么？有什么收获和感悟？写下你的学习总结..." rows="12"></textarea>
+                <div class="summary-history" id="summaryHistory"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="song-xhs-data.js"></script>
+    <script src="song-xhs-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宋宋的工作台 · 2027广东省考冲刺</title>
+    <link rel="stylesheet" href="song-dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- 顶部标题栏 -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <h1>🎯 宋宋的工作台</h1>
+                <span class="subtitle">冲刺2027广东省公务员考试</span>
+            </div>
+            <div class="top-bar-right">
+                <div class="countdown">
+                    <span class="countdown-label">距2027省考约</span>
+                    <span class="countdown-num" id="countdown">--</span>
+                    <span class="countdown-label">天</span>
+                </div>
+                <span class="today-date" id="todayDate"></span>
+            </div>
+        </header>
+
+        <div class="dashboard-grid">
+            <!-- 左列：每日任务 + 学习总结 -->
+            <div class="col col-left">
+                <!-- 每日任务 -->
+                <section class="card tasks-card">
+                    <div class="card-header">
+                        <h2>📋 今日任务</h2>
+                        <span class="card-progress" id="taskProgress">0/0</span>
+                    </div>
+                    <div class="task-add">
+                        <input type="text" id="taskInput" placeholder="添加学习任务..." maxlength="80">
+                        <button onclick="addTask()">+ 添加</button>
+                    </div>
+                    <ul class="task-list" id="taskList"></ul>
+                </section>
+
+                <!-- 每日学习总结 -->
+                <section class="card summary-card">
+                    <div class="card-header">
+                        <h2>📝 每日学习总结</h2>
+                        <button class="btn-save-summary" onclick="saveSummary()">保存</button>
+                    </div>
+                    <textarea id="summaryText" placeholder="今天学到了什么？有什么收获？写下你的学习总结..."></textarea>
+                    <div class="summary-meta">
+                        <span id="summarySavedTime">尚未保存</span>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 中列：时政热点 + 广东热点 -->
+            <div class="col col-mid">
+                <!-- 时政热点 -->
+                <section class="card hot-card">
+                    <div class="card-header">
+                        <h2>🌐 最新时政热点</h2>
+                        <span class="update-time">更新于 2026-07-28</span>
+                    </div>
+                    <div class="hot-list" id="nationalHotList"></div>
+                </section>
+
+                <!-- 广东热点 -->
+                <section class="card hot-card">
+                    <div class="card-header">
+                        <h2> 广东省热点</h2>
+                        <span class="update-time">更新于 2026-07-28</span>
+                    </div>
+                    <div class="hot-list" id="gdHotList"></div>
+                </section>
+            </div>
+
+            <!-- 右列：备考技巧 + 每日复盘 -->
+            <div class="col col-right">
+                <!-- 备考技巧 -->
+                <section class="card tips-card">
+                    <div class="card-header">
+                        <h2>💡 备考技巧与方法</h2>
+                    </div>
+                    <div class="tips-list" id="tipsList"></div>
+                </section>
+
+                <!-- 每日复盘 -->
+                <section class="card review-card">
+                    <div class="card-header">
+                        <h2>🔍 每日复盘</h2>
+                        <button class="btn-gen-review" onclick="generateReview()">生成复盘</button>
+                    </div>
+                    <div class="review-form">
+                        <div class="review-row">
+                            <label>今日学习时长</label>
+                            <input type="text" id="reviewHours" placeholder="如：4小时">
+                        </div>
+                        <div class="review-row">
+                            <label>学习内容</label>
+                            <textarea id="reviewContent" rows="2" placeholder="今天学了哪些科目/知识点..."></textarea>
+                        </div>
+                        <div class="review-row">
+                            <label>薄弱环节</label>
+                            <textarea id="reviewWeak" rows="2" placeholder="哪些地方觉得吃力..."></textarea>
+                        </div>
+                        <div class="review-row">
+                            <label>明日计划</label>
+                            <textarea id="reviewPlan" rows="2" placeholder="明天重点学什么..."></textarea>
+                        </div>
+                    </div>
+                    <div class="review-output" id="reviewOutput"></div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="song-data.js"></script>
+    <script src="song-dashboard.js"></script>
+</body>
+</html>
