@@ -615,7 +615,7 @@ body {
 
 @media (max-width: 600px) {
     .sidebar {
-        width: 60px;
+        width: 90px;
         position: fixed;
         left: 0;
         top: 0;
@@ -623,25 +623,37 @@ body {
         z-index: 100;
     }
     .sidebar-brand {
-        padding: 16px 0;
+        padding: 16px 8px;
         justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 4px;
     }
     .brand-text {
+        display: block;
+    }
+    .brand-name {
+        font-size: 13px;
+    }
+    .brand-sub {
         display: none;
     }
     .nav-item {
-        justify-content: center;
-        padding: 14px 0;
+        flex-direction: column;
+        padding: 12px 4px;
+        text-align: center;
+        gap: 2px;
     }
     .nav-text {
-        display: none;
+        display: block;
+        font-size: 11px;
     }
     .nav-icon {
         margin-right: 0;
-        font-size: 22px;
+        font-size: 20px;
     }
     .main-content {
-        margin-left: 60px;
+        margin-left: 90px;
         padding: 0;
     }
     .content-section {
