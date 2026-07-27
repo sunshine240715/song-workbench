@@ -30,33 +30,17 @@
                     <span class="nav-icon">📋</span>
                     <span class="nav-text">每日计划</span>
                 </div>
-                <div class="nav-item" data-tab="hot">
-                    <span class="nav-icon">💡</span>
-                    <span class="nav-text">选题每日灵感</span>
-                </div>
-                <div class="nav-item" data-tab="review">
-                    <span class="nav-icon">🔥</span>
-                    <span class="nav-text">爆款热点视频/二创</span>
-                </div>
-                <div class="nav-item" data-tab="summary">
-                    <span class="nav-icon">📊</span>
-                    <span class="nav-text">内容复盘</span>
-                </div>
-                <div class="nav-item" data-tab="memo">
-                    <span class="nav-icon">📝</span>
-                    <span class="nav-text">备忘录</span>
-                </div>
                 <div class="nav-item" data-tab="exam">
                     <span class="nav-icon">📖</span>
-                    <span class="nav-text">公基练习</span>
+                    <span class="nav-text">公基</span>
                 </div>
                 <div class="nav-item" data-tab="zhice">
                     <span class="nav-icon">📝</span>
-                    <span class="nav-text">职测练习</span>
+                    <span class="nav-text">职测</span>
                 </div>
                 <div class="nav-item" data-tab="shenlun">
                     <span class="nav-icon">✍️</span>
-                    <span class="nav-text">申论学习</span>
+                    <span class="nav-text">申论</span>
                 </div>
             </nav>
         </aside>
@@ -86,70 +70,10 @@
                 <ul class="task-list" id="taskList"></ul>
             </section>
 
-            <!-- 选题灵感 -->
-            <section class="content-section" id="content-hot">
-                <div class="section-header">
-                    <h2>💡 选题每日灵感</h2>
-                    <span class="update-tag">整理自小红书/知乎/头条</span>
-                </div>
-                <div class="xhs-grid" id="xhsGrid"></div>
-            </section>
-
-            <!-- 爆款热点 -->
-            <section class="content-section" id="content-review">
-                <div class="section-header">
-                    <h2>🔥 爆款热点视频/二创</h2>
-                    <span class="update-tag">2026-07-28更新</span>
-                </div>
-                <div class="hot-list" id="hotList"></div>
-            </section>
-
-            <!-- 内容复盘 -->
-            <section class="content-section" id="content-summary">
-                <div class="section-header">
-                    <h2>📊 内容复盘</h2>
-                    <button class="btn-primary" onclick="generateReview()">生成复盘分析</button>
-                </div>
-                <div class="module-inputs">
-                    <h3>各模块做题情况</h3>
-                    <p class="hint">录入今天各模块做题数和正确数，系统自动计算正确率并分析薄弱环节</p>
-                    <table class="module-table">
-                        <thead>
-                            <tr><th>模块</th><th>做题数</th><th>正确数</th><th>正确率</th></tr>
-                        </thead>
-                        <tbody id="moduleTableBody"></tbody>
-                    </table>
-                </div>
-                <div class="review-inputs">
-                    <div class="review-field">
-                        <label>今日学习时长</label>
-                        <input type="text" id="reviewHours" placeholder="如：4小时">
-                    </div>
-                    <div class="review-field">
-                        <label>错误原因总结</label>
-                        <textarea id="reviewErrors" rows="3" placeholder="今天做错的主要原因..."></textarea>
-                    </div>
-                    <div class="review-field">
-                        <label>明日改进计划</label>
-                        <textarea id="reviewPlan" rows="3" placeholder="明天重点改进什么..."></textarea>
-                    </div>
-                </div>
-                <div class="review-output" id="reviewOutput"></div>
-            </section>
-
-            <!-- 备忘录 -->
-            <section class="content-section" id="content-memo">
-                <div class="section-header">
-                    <h2>📝 备忘录</h2>
-                    <button class="btn-primary" onclick="saveMemo()">保存</button>
-                </div>
-                <textarea id="memoText" placeholder="随手记录重要事项、灵感、待办..." rows="20"></textarea>
-            </section>
-
             <!-- 公基练习 -->
             <section class="content-section" id="content-exam">
                 <div class="section-header">
-                    <h2>📖 公基练习</h2>
+                    <h2>📖 公基</h2>
                     <div class="quiz-stats-bar">
                         <span>总题数：<b id="gongjiTotal">0</b></span>
                         <span>已答：<b id="gongjiAnswered">0</b></span>
@@ -166,7 +90,7 @@
             <!-- 职测练习 -->
             <section class="content-section" id="content-zhice">
                 <div class="section-header">
-                    <h2>📝 职测练习</h2>
+                    <h2>📝 职测</h2>
                     <div class="quiz-stats-bar">
                         <span>总题数：<b id="zhiceTotal">0</b></span>
                         <span>已答：<b id="zhiceAnswered">0</b></span>
@@ -183,7 +107,7 @@
             <!-- 申论学习 -->
             <section class="content-section" id="content-shenlun">
                 <div class="section-header">
-                    <h2>✍️ 申论学习</h2>
+                    <h2>✍️ 申论</h2>
                 </div>
                 <div class="video-intro">
                     <p>📚 精选 B 站申论学习博主，点击卡片跳转主页，点击"申论视频"按钮搜索该博主的申论相关视频。</p>

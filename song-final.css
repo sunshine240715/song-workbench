@@ -101,6 +101,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 /* 顶部栏 */
@@ -138,8 +139,9 @@ body {
 /* 内容区 */
 .content-section {
     display: none;
-    padding: 24px 32px;
-    max-width: 900px;
+    padding: 24px 32px 40px;
+    width: 100%;
+    max-width: none;
     animation: fadeIn 0.3s ease;
 }
 

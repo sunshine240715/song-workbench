@@ -521,10 +521,9 @@ function init() {
     calcCountdown();
     initTabs();
     renderTasks();
-    renderXhsNotes();
-    renderHotList();
-    renderModuleTable();
-    loadMemo();
+    renderQuiz('gongji');
+    renderQuiz('zhice');
+    renderShenlun();
 
     document.getElementById('taskInput').addEventListener('keypress', e => {
         if (e.key === 'Enter') addTask();
