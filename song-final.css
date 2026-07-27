@@ -614,10 +614,49 @@ body {
 }
 
 @media (max-width: 600px) {
-    .sidebar { display: none; }
-    .main-content { padding: 0; }
-    .content-section { padding: 12px 16px; }
-    .topbar { padding: 12px 16px; flex-direction: column; gap: 6px; align-items: flex-start; }
-    .quiz-stats-bar { gap: 8px; }
-    .analysis-grid { grid-template-columns: 1fr; }
+    .sidebar {
+        width: 60px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 100;
+    }
+    .sidebar-brand {
+        padding: 16px 0;
+        justify-content: center;
+    }
+    .brand-text {
+        display: none;
+    }
+    .nav-item {
+        justify-content: center;
+        padding: 14px 0;
+    }
+    .nav-text {
+        display: none;
+    }
+    .nav-icon {
+        margin-right: 0;
+        font-size: 22px;
+    }
+    .main-content {
+        margin-left: 60px;
+        padding: 0;
+    }
+    .content-section {
+        padding: 12px 16px;
+    }
+    .topbar {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+    }
+    .quiz-stats-bar {
+        gap: 8px;
+    }
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
 }
